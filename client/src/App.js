@@ -16,6 +16,7 @@ function App() {
           display BubblePage when you're authenticated 
         */}
         
+        {/* PrivateRoute routes to the protected page, but the PrivateRoute component checks for a token first.  If no token, Route takes the user to the Login component */}
         <PrivateRoute exact path='/protected' component={BubblePage} />
         <Route path='/login' component={Login} />
         <Route exact path='/' component={Login} />

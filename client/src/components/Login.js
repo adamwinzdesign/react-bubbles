@@ -5,6 +5,8 @@ import axiosWithAuth from './axiosWithAuth';
 class Login extends React.Component {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
+
+  // initialize state with empty credentials object
   state = {
     credentials: {
       username: '',
@@ -13,6 +15,7 @@ class Login extends React.Component {
     isFetching: false
   }
 
+  // add user credentials to state when handleChange is called
   handleChange = event => {
     this.setState({
       credentials: {
@@ -22,6 +25,7 @@ class Login extends React.Component {
     })
   }
 
+  // attempt to get authentication token from the server, set it to localStorage, then route to the protected page, which is defined as BubblePage in App.js
   login = event => {
     event.preventDefault();
     this.setState({
@@ -39,17 +43,17 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='loginContain'>
         <h1>Welcome to the Bubble App!</h1>
 
         <form onSubmit={this.login}>
-          <input
+          <input className='loginInput'
             type='text'
             name='username'
             value={this.state.credentials.username}
             onChange={this.handleChange}
           />
-          <input
+          <input className='loginInput'
             type='password'
             name='password'
             value={this.state.credentials.password}

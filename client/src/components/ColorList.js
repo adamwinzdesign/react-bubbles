@@ -22,6 +22,7 @@ const ColorList = ({ colors, getColor }) => {
     // think about where will you get the id from...
     // where is is saved right now?
 
+    // edit color, send id of color to edit and the new color value
     axiosWithAuth()
       .put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
       .then(response => {
@@ -34,6 +35,7 @@ const ColorList = ({ colors, getColor }) => {
   const deleteColor = color => {
     // make a delete request to delete this color
 
+    // delete color that has matching id, then set new color list to the response from the server, which should not include the deleted color
     axiosWithAuth()
       .delete(`http://localhost:5000/api/colors/${color.id}`)
       .then(response => {

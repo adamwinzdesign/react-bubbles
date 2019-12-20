@@ -13,6 +13,7 @@ const BubblePage = () => {
     getColor();
   }, []);
 
+  // get colors from database, set to state
   const getColor = () => {
     axiosWithAuth()
       .get('colors')
